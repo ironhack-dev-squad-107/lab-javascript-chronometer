@@ -1,3 +1,4 @@
+// Constructor
 function Chronometer () {
   this.intervalId;
   this.currentTime = 0;
@@ -23,7 +24,7 @@ Chronometer.prototype.resetClick = function () {
 };
 
 Chronometer.prototype.splitClick = function () {
-  console.log("Split click");
+  this.split();
 };
 
 // Visual Behaviour Functions
@@ -59,7 +60,17 @@ Chronometer.prototype.stop = function () {
 Chronometer.prototype.reset = function () {
   this.currentTime = 0;
   this.printTime();
-}
+};
+
+Chronometer.prototype.split = function () {
+  var minutes = this.getCurrentMinutes();
+  var seconds = this.getCurrentSeconds(minutes);
+  var split   = utils.twoDigitsNumber(minutes) + ":" + utils.twoDigitsNumber(seconds);
+
+  var li = document.createElement("li");
+  li.innerHTML = split;
+  document.getElementById("splits").appendChild(li);
+};
 
 Chronometer.prototype.printTime = function () {
   var minDec = document.getElementById("minDec");
@@ -67,16 +78,25 @@ Chronometer.prototype.printTime = function () {
   var secDec = document.getElementById("secDec");
   var secUni = document.getElementById("secUni");
 
-  var minutes = Math.floor(this.currentTime / 60);
-  var seconds = this.currentTime - (minutes * 60);
+  var minutes = this.getCurrentMinutes();
+  var seconds = this.getCurrentSeconds(minutes);
 
   if (minutes > 0) {
-    var mins = ("0" + minutes).slice(-2);
+    var mins = utils.twoDigitsNumber(minutes);
+
     minDec.innerHTML = mins[0];
     minUni.innerHTML = mins[1];
   }
 
-  var secs = ("0" + seconds).slice(-2);
+  var secs = utils.twoDigitsNumber(seconds);
   secDec.innerHTML = secs[0];
   secUni.innerHTML = secs[1];
 }
+
+Chronometer.prototype.getCurrentMinutes = function () {
+  return Math.floor(this.currentTime / 60);
+};
+
+Chronometer.prototype.getCurrentSeconds = function (minutes) {
+  return this.currentTime - (minutes * 60);
+};

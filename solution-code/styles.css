@@ -34,6 +34,18 @@ body {
   width: 220px;
 }
 
+#splits-container {
+  font-size: 20px;
+  font-weight: 100;
+  position: absolute;
+  left: 50px;
+}
+
+#splits-container li {
+  padding-bottom: 5px;
+  text-align: right;
+}
+
 .leash {
   background: rgb(204, 84, 87);
   border: 2px solid rgb(134, 59, 61);
