@@ -1,5 +1,7 @@
 // Constructor
-function Chronometer () {
+function Chronometer (utils) {
+  this.utils = utils;
+
   this.intervalId;
   this.currentTime = 0;
 }
@@ -68,7 +70,7 @@ Chronometer.prototype.reset = function () {
 Chronometer.prototype.split = function () {
   var minutes = this.getCurrentMinutes();
   var seconds = this.getCurrentSeconds(minutes);
-  var split   = utils.twoDigitsNumber(minutes) + ":" + utils.twoDigitsNumber(seconds);
+  var split   = this.utils.twoDigitsNumber(minutes) + ":" + this.utils.twoDigitsNumber(seconds);
 
   var li = document.createElement("li");
   li.innerHTML = split;
@@ -97,14 +99,14 @@ Chronometer.prototype.getCurrentSeconds = function (minutes) {
 };
 
 Chronometer.prototype.printMinutes = function (minutes) {
-  var mins = utils.twoDigitsNumber(minutes);
+  var mins = this.utils.twoDigitsNumber(minutes);
 
   minDec.innerHTML = mins[0];
   minUni.innerHTML = mins[1];
 };
 
 Chronometer.prototype.printSeconds = function (seconds) {
-  var secs = utils.twoDigitsNumber(seconds);
+  var secs = this.utils.twoDigitsNumber(seconds);
 
   secDec.innerHTML = secs[0];
   secUni.innerHTML = secs[1];

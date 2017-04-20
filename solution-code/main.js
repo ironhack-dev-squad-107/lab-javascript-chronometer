@@ -1,6 +1,6 @@
 // Initialize
-var chronometer = new Chronometer();
 var utils       = new Utils();
+var chronometer = new Chronometer(utils);
 var btnLeft     = document.getElementById("btnLeft");
 var btnRight    = document.getElementById("btnRight");
 
