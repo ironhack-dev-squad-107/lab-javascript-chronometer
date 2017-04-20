@@ -50,7 +50,7 @@ Chronometer.prototype.start = function () {
   this.intervalId = setInterval(function () {
     that.currentTime += 1;
     that.printTime();
-  }, 100);
+  }, 1000);
 };
 
 Chronometer.prototype.stop = function () {
