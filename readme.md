@@ -141,9 +141,9 @@ Remember that we are using the `Chronometer` object, so you will have to create 
 
 - Create an ordered list `<ol>` in the HTML, and style it through the `styles.css` file.
 - Create the code that will handle the split feature on the `btnRight` button of our clock. The split will have to:
-    - Capture the Chronometer time.
-    - Create a new `<li>` element, setting as the text the current time.
-    - Append this new `<li>` element to the ordered list we created in the HTML.
+  - Capture the Chronometer time.
+  - Create a new `<li>` element, setting as the text the current time.
+  - Append this new `<li>` element to the ordered list we created in the HTML.
 
 ![](https://s3-eu-west-1.amazonaws.com/ih-materials/uploads/upload_a5c9687f25bd710b2e7658ee6d997174.png)
 
@@ -156,8 +156,26 @@ To do that, we will have to set the minutes and seconds to zero in our clock, an
 #### Tasks
 
 - Create the code that will handle the reset feature on the `btnRight` button of our clock. This code will be executed when the chronometer is stopped. It will have to:
-    - Clear the `Chronometer` attribute that controls the time that it has been running.
-    - Remove all the `<li>` elements from the Split list.
-    - Set up the clock time to 00:00.
+  - Clear the `Chronometer` attribute that controls the time that it has been running.
+  - Remove all the `<li>` elements from the Split list.
+  - Set up the clock time to 00:00.
+
+### BONUS Iteration: Milliseconds
+
+Now, we can use our chronometer to calculate how many time we spend on each Ironhack exercise. What happens if we want to calculate our time in a race? We need to be more accurate with our chronometer. How can we be more accurate? By adding milliseconds!
+
+If we want to add milliseconds to the chronometer, we will have to manipulate the HTML, the CSS, and the JavaScript. In the HTML we will have to a container to show the milliseconds, changing the style of this container. Finally, in the JavaScript we will have to add all the logic to show the milliseconds in clock. You will also have to add these milliseconds in the split counter.
+
+![](https://s3-eu-west-1.amazonaws.com/ih-materials/uploads/upload_82e9d1fd5976a3f98bb1382f2385f6a1.png)
+
+#### Tasks
+
+- Add the necessary HTML to show the milliseconds in the clock.
+- Add the necessary styles in the CSS to show the milliseconds as you like.
+- Create the JavaScript logic to:
+  - Be able to count the milliseconds.
+  - Show the milliseconds going forward.
+  - Show the milliseconds when you capture an split time.
+  - Clear the milliseconds when the Reset button is clicked.
 
 /Happy coding!
