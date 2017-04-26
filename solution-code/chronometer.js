@@ -3,7 +3,9 @@ function Chronometer (utils) {
   this.utils = utils;
 
   this.intervalId;
+  this.millisecondsIntervalId;
   this.currentTime = 0;
+  this.currentMilliseconds = 0;
 }
 
 // Button click events
@@ -53,24 +55,34 @@ Chronometer.prototype.start = function () {
     that.currentTime += 1;
     that.printTime();
   }, 1000);
+
+  this.millisecondsIntervalId = setInterval(function () {
+    if (that.currentMilliseconds === 99) { that.currentMilliseconds = 0; }
+    that.currentMilliseconds += 1;
+    that.printMilliseconds(that.currentMilliseconds);
+  }, 10);
 };
 
 Chronometer.prototype.stop = function () {
   clearInterval(this.intervalId);
+  clearInterval(this.millisecondsIntervalId);
 };
 
 Chronometer.prototype.reset = function () {
   this.currentTime = 0;
+  this.currentMilliseconds = 0;
 
   this.printMinutes(0);
   this.printSeconds(0);
+  this.printMilliseconds(0);
   this.clearSplits();
 };
 
 Chronometer.prototype.split = function () {
-  var minutes = this.getCurrentMinutes();
-  var seconds = this.getCurrentSeconds(minutes);
-  var split   = this.utils.twoDigitsNumber(minutes) + ":" + this.utils.twoDigitsNumber(seconds);
+  var minutes      = this.getCurrentMinutes();
+  var seconds      = this.getCurrentSeconds(minutes);
+  var milliseconds = this.currentMilliseconds;
+  var split        = this.utils.twoDigitsNumber(minutes) + ":" + this.utils.twoDigitsNumber(seconds) + ":" + this.utils.twoDigitsNumber(milliseconds);
 
   var li = document.createElement("li");
   li.innerHTML = split;
@@ -82,6 +94,8 @@ Chronometer.prototype.printTime = function () {
   var minUni = document.getElementById("minUni");
   var secDec = document.getElementById("secDec");
   var secUni = document.getElementById("secUni");
+  var milDec = document.getElementById("milDec");
+  var milUni = document.getElementById("milUni");
 
   var minutes = this.getCurrentMinutes();
   var seconds = this.getCurrentSeconds(minutes);
@@ -110,6 +124,13 @@ Chronometer.prototype.printSeconds = function (seconds) {
 
   secDec.innerHTML = secs[0];
   secUni.innerHTML = secs[1];
+};
+
+Chronometer.prototype.printMilliseconds = function (milliseconds) {
+  var milli = this.utils.twoDigitsNumber(milliseconds);
+
+  milDec.innerHTML = milli[0];
+  milUni.innerHTML = milli[1];
 };
 
 Chronometer.prototype.clearSplits = function () {
