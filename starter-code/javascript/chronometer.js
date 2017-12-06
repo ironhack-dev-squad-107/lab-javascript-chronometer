@@ -1,0 +1,4 @@
+// Constructor
+function Chronometer() {
+
+}
