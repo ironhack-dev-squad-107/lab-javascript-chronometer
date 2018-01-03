@@ -91,7 +91,7 @@ As we did with the minutes, we need a method that returns the seconds that we ha
 
 Our chronometer has a super cool screen that needs two digits number to display minutes and seconds, but sometimes `setMinutes` and `setSeconds` returns a single digit number, so let's create a super easy function that will receive as a parameter a value and will return us the same value but 2 digits length.
 
-**This is an awesome example of a functionality w that we will need several times, so we isolate it on a function and just call every time we want**
+**This is an awesome example of a functionality that we will need several times, so we isolate it on a function and just call every time we want**
 
 #### setTime()
 
@@ -157,11 +157,11 @@ The following feature we will implement is the split button. Remember that the s
 
 #### HTML & CSS
 
-First of all, we have to create in our `index.html` file an ordered list where we are going to append the current time every time we press the split button. Once you have added the ordered list, you can style it in the `styles.css` file.
+First of all, we have to create in our `index.html` file an ordered list where we are going to append the current time every time we press the split button.
 
 #### JavaSript
 
-Once we have created the ordered list in our HTML, we have to create the button functionality. Every time we click on the split button, we will have to create a new `<li>` element and append it to the ordered list. The text of this element will be the current time of the chronometer (we have a method on our Chronometer constructor that return this :wink:).
+Once we have created the ordered list in our HTML, we have to create the button functionality. Every time we click on the split button, we will have to create a new `<li>` element and append it to the ordered list. The text of this element will be the current time of the chronometer (we have a method on our Chronometer constructor that returns this :wink:).
 
 ![](https://s3-eu-west-1.amazonaws.com/ih-materials/uploads/upload_a5c9687f25bd710b2e7658ee6d997174.png)
 
@@ -173,7 +173,7 @@ To do that, we will have to set the minutes and seconds to zero in our clock and
 
 ### BONUS Iteration: Milliseconds
 
-Now, we can use our chronometer to calculate how many time we spend on each Ironhack exercise. What happens if we want to calculate our time in a race? We need to be more accurate with our chronometer. How can we be more accurate? By adding milliseconds!
+Now, we can use our chronometer to calculate how much time we spend on each Ironhack exercise. What happens if we want to calculate our time in a race? We need to be more accurate with our chronometer. How can we be more accurate? By adding milliseconds!
 
 If we want to add milliseconds to the chronometer, we will have to manipulate the HTML, the CSS, and the JavaScript. In the HTML we will have to a container to show the milliseconds, changing the style of this container. Finally, in the JavaScript, we will have to add all the logic to show the milliseconds in the clock. You will also have to add these milliseconds to the split counter.
 
