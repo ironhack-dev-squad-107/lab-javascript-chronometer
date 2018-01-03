@@ -4,7 +4,7 @@ describe('', function () {
   });
 
   describe('constructor function', function () {
-    it('Should declare a Chronometer function)', function () {
+    it('Should declare a Chronometer function', function () {
       expect(typeof Chronometer).toEqual('function');
     });
 
@@ -67,7 +67,6 @@ describe('', function () {
 
     it('Should return a number', function () {
       chronometer.currentTime = 65;
-
       expect(typeof chronometer.setMinutes()).toEqual('number');
     });
 
